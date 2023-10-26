@@ -34,7 +34,7 @@ with section1:
     # Image analysis
     if file_to_upload:
         # Adjust and preprocess image
-        loaded_image = Imaging.open(file_to_upload)
+        loaded_image = Image.open(file_to_upload)
         if loaded_image.mode != "RGB":
             loaded_image = loaded_image.convert("RGB")  # Adjust to RGB mode if different
         loaded_image = loaded_image.resize((input_dimensions[1], input_dimensions[2]))
