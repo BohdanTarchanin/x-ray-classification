@@ -29,7 +29,13 @@ with section1:
     app_interface.markdown('<h3 style="font-weight:normal;">Utilize this tool to classify Chest X-ray images into categories: COVID-19, Viral Pneumonia, or Normal. Clear images yield better outcomes.</h3>', unsafe_allow_html=True)
 
     # Upload mechanism
-    file_to_upload = app_interface.file_uploader("Choose a chest X-ray image", type=["jpg", "jpeg", "png"])
+    file_to_upload = app_interface.file_uploader("Upload a chest X-ray image", type=["jpg", "jpeg", "png"])
+
+    st.info(
+            f"""
+                👆 Upload a chest X-ray image. [Example of X-ray images](https://drive.google.com/drive/folders/1t7Z3yhx4nGYI0RRR7JSGozGw8p2hNs95?usp=sharing)
+                """
+        )
 
     # Image analysis
     if file_to_upload:
