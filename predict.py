@@ -2,7 +2,7 @@
 import streamlit as app_interface
 import numpy as np_matrixlib
 import tensorflow as tf_framework
-from PIL import Imaging
+from PIL import Image
 
 # Initialize the tflite model
 model_directory = "primary.tflite"
