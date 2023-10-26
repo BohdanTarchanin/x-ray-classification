@@ -18,15 +18,15 @@ input_dtype = input_details[0]['dtype']
 output_dtype = output_details[0]['dtype']
 
 # Define class names
-class_names = ['Covid', 'Normal']
+class_names = ['Covid', 'Viral Pneumonia', 'Normal']
 
-st.set_page_config(page_title="Chest X-ray Classifier", layout="wide")
+st.set_page_config(page_title="Chest X-Ray Diagnostic Tool", layout="wide")
 col1, col2 = st.columns([1, 1])  # Divide the page into two columns
 
 # Left column - Image upload
 with col1:
     st.title('Chest X-Ray Diagnostic Tool')
-    st.markdown('<h3 style="font-weight:normal;">This application helps to classify Chest X-ray images as either COVID-19 affected or Normal. Ensure your image is clear for best results.</h3>', unsafe_allow_html=True)
+    st.markdown('<h3 style="font-weight:normal;">This application helps to classify Chest X-ray images as either COVID-19, Viral Pneumonia or Normal. Ensure your image is clear for best results.</h3>', unsafe_allow_html=True)
 
     # Image upload
     uploaded_file = st.file_uploader("Upload a chest X-ray image", type=["jpg", "jpeg", "png"])
@@ -50,7 +50,8 @@ with col1:
             predicted_class_index = np.argmax(predictions, axis=1)
             predicted_class_name = class_names[predicted_class_index[0]]
             return predicted_class_name
-
+        
+        # Instant prediction
         predicted_class_name = predict(image)
         # Display prediction as a heading in bold font
         st.markdown(f"<h3>Classified as: <span style='font-style: italic; font-weight: bold;'>{predicted_class_name}</span></h3>", unsafe_allow_html=True)
