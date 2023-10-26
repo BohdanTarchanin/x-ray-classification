@@ -31,7 +31,7 @@ with section1:
     # Upload mechanism
     file_to_upload = app_interface.file_uploader("Upload a chest X-ray image", type=["jpg", "jpeg", "png"])
 
-    st.info(
+    app_interface.info(
             f"""
                 👆 Upload a chest X-ray image. [Example of X-ray images](https://drive.google.com/drive/folders/1t7Z3yhx4nGYI0RRR7JSGozGw8p2hNs95?usp=sharing)
                 """
